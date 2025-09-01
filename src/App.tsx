@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Joke from "./Joke"
 
-function App() {
-  const [count, setCount] = useState(0)
+const jokes = [
+  {
+    setup: "I got my daughter a fridge for her birthday.",
+    punchline: "I can't wait to see her face light up when she opens it."
+  },
+  {
+    setup: "How did the hacker escape the police?",
+    punchline: "He just ransomware!"
+  },
+  {
+    setup: "Why don't pirates travel on mountain roads?",
+    punchline: "Scurvy."
+  },
+  {
+    setup: "Why do bees stay in the hive in the winter?",
+    punchline: "Swarm."
+  },
+  {
+    setup: "What's the best thing about Switzerland?",
+    punchline: "I don't know, but the flag is a big plus!"
+  },
+  {
+    punchline: "It's hard to explain puns to kleptomaniacs because they always take things literally."
+  }
+]
 
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <main>
+      <h1>Jokes</h1>
+      <h2>Here are some jokes:</h2>
+      {jokes.map((joke) => (
+        <Joke setup={joke.setup || ""} punchline={joke.punchline || ""} />
+      ))}
+    </main>
   )
 }
-
-export default App
